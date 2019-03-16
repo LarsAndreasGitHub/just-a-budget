@@ -1,8 +1,10 @@
 import * as React from 'react';
-import { AppRegistry, Button, TextInput, View, Alert, StyleSheet } from "react-native";
-import MonthPicker, { Month } from "./MonthPicker";
-import CategoryPicker, { Category } from "./CategoryPicker";
+import { Button, TextInput, View, Alert, StyleSheet } from "react-native";
+import MonthPicker from "./MonthPicker";
+import CategoryPicker from "./CategoryPicker";
 import { addExpense } from "../storage/storage";
+import { Category, Expense, noCategory } from '../domain';
+import commonStyles from '../commonStyles';
 
 const categories = [
     {"name": "Lunch"},
@@ -12,26 +14,12 @@ const categories = [
 ];
 
 const styles = StyleSheet.create({
-    textInput: {
-        height: 60,
-        width: 300,
-        borderColor: 'black',
-        borderWidth: 2,
-        fontFamily: 'Roboto',
-        textAlign: 'center',
-        fontSize: 40,
-    },
     wrapper: {
         flex: 3,
         justifyContent: 'space-around',
     }
 });
 
-export interface Expense {
-    month: Month;
-    value: number;
-    category: Category;
-}
 
 class ExpenseAdder extends React.Component<{}, Expense> {
     constructor(props: {}) {
@@ -39,7 +27,7 @@ class ExpenseAdder extends React.Component<{}, Expense> {
         this.state = {
             month: '',
             value: 0,
-            category: {name: 'no-category'},
+            category: noCategory,
         }
     }
 
@@ -75,7 +63,7 @@ class ExpenseAdder extends React.Component<{}, Expense> {
                     pickCategory={(category: Category) => this.setState({category: category})}
                 />
                 <TextInput
-                    style={styles.textInput}
+                    style={commonStyles.textInput}
                     onChangeText={text => this.addExpenseValue(text)}
                     keyboardType={"numeric"}
                     value={'' + this.state.value}
@@ -90,5 +78,3 @@ class ExpenseAdder extends React.Component<{}, Expense> {
 }
 
 export default ExpenseAdder;
-
-AppRegistry.registerComponent('AwesomeProject', () => ExpenseAdder);

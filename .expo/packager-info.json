@@ -1,10 +1,10 @@
 {
   "devToolsPort": 19002,
-  "expoServerPort": 19000,
-  "packagerPort": 19001,
-  "packagerPid": 31815,
+  "expoServerPort": null,
+  "packagerPort": null,
+  "packagerPid": null,
   "expoServerNgrokUrl": "https://qi-ycm.anonymous.just-a-budget.exp.direct",
   "packagerNgrokUrl": "https://packager.qi-ycm.anonymous.just-a-budget.exp.direct",
-  "ngrokPid": 31857,
+  "ngrokPid": 8271,
   "webpackServerPort": null
 }

@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { AppRegistry, Picker } from "react-native";
-
-export type Category = {
-    name: string
-};
+import { Category } from '../domain';
 
 const style = {
     height: 50,

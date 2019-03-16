@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { AppRegistry, Picker } from "react-native";
+import { Picker } from "react-native";
+import { Month } from '../domain';
 
 const style = {
     height: 50,
 };
 
-export type Month = string;
 
 interface Props {
     month: Month;
@@ -38,5 +38,3 @@ class MonthPicker extends React.Component<Props> {
 }
 
 export default MonthPicker;
-
-AppRegistry.registerComponent('empty-project', () => MonthPicker);
